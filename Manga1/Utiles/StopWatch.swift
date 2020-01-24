@@ -13,37 +13,30 @@ class Stopwatch: ObservableObject {
     
     @Published var minCounter: Int = 1
     @Published var secCounter: Int = 0
-
-    var timer = Timer()
-    
+   @State private var timer = Timer()
     
     func start() {
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            if self.secCounter == 0 {
-                self.minCounter -= 1
-            } else if self.secCounter == 0 && self.minCounter == 0 {
-                           timer.invalidate()
-                       }
-        }
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            if self.secCounter == 0 {
-                self.secCounter = 59
-            } else if self.secCounter == 0 && self.minCounter == 0 {
-                timer.invalidate()
-            } else {
-                self.secCounter -= 1
+            if self.secCounter == 0 && self.minCounter == 0 {
+                self.timer.invalidate()
             }
+            else if self.secCounter == 0 {
+                self.minCounter -= 1
+                self.secCounter = 59
+            } else { self.secCounter -= 1
+                            }
+        }
     }
-    }
-    
+
         func stop() {
         timer.invalidate()
     }
+
 }
-    
 //    func reset() {
 //        minCounter = 0
 //        secCounter = 0
 //        timer.invalidate()
 //    }
+
 

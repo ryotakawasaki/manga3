@@ -48,10 +48,8 @@ struct RecomendView: View {
                                               
                                       })
                                        .buttonStyle(PlainButtonStyle())
-                                      
                    }
-                   
-                    Text("これも最高！")
+                   Text("これも最高！")
                    
                    
                    HStack {

@@ -25,6 +25,7 @@ struct ContentWriterView: View {
         .onAppear(perform: {
             self.networkManager.getAllUsers()
         })
+        
     }
 }
 

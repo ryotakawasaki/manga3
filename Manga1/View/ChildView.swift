@@ -10,7 +10,14 @@ import SwiftUI
 
 struct ChildView: View {
     var body: some View {
-            Image("karami")
+        NavigationView {
+            
+            NavigationLink (destination: ContentWriterView()) {
+                    Image("book")
+            }.buttonStyle(PlainButtonStyle())
+            
+        }
+        
     }
 }
 

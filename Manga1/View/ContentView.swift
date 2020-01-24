@@ -47,12 +47,12 @@ struct ContentView: View {
                     .resizable()
                     .frame(width: geometry.size.width / 3,
                            height: geometry.size.height / 4)
-            NavigationLink(destination: ChildView()) {
-               Text("初回無料！残り\(self.stopwatch.minCounter):\(self.stopwatch.secCounter)")
+          
+//            NavigationLink(destination: ChildView()) {
+        Text("初回無料！残り\(self.stopwatch.minCounter):\(self.stopwatch.secCounter)")
                               .font(.largeTitle)
                               .fontWeight(.heavy)
                               .padding(.top, 50)
-                }
             Spacer()
              
             HStack {
@@ -62,7 +62,7 @@ struct ContentView: View {
                         self.isPlaying = true}
                     }) {
                 Text("Start")
-                    }.disabled(self.isPlaying)
+            }.disabled(self.isPlaying)
 
             Button(action: {
                     self.stopwatch.stop()
@@ -70,22 +70,21 @@ struct ContentView: View {
                 })
             {
                 Text("Stop")
-            }
-            .disabled(!self.isPlaying)
+            }.disabled(!self.isPlaying)
         }
             
         Spacer()
                 Text("読みたい作品が決まったらStartを押してね！")
                     Text("↓↓10万冊が読み放題！↓↓")
 
-                    NavigationLink(destination: ContentWriterView())
+                    NavigationLink(destination: ChildView())
                     {
                         Image("alldata")
                         .resizable()
                         .frame(width: geometry.size.width / 1,
                         height: geometry.size.height / 4)
                     }.buttonStyle(PlainButtonStyle())
-//                    .disabled(!self.isPlaying)
+                        .disabled(!self.isPlaying)
 
                     }
                 }
